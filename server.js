@@ -1,6 +1,7 @@
 const express = require('express');
-const app = express();
 const PORT = process.env.PORT || 3001;
+const app = express();
+
 
 const { animals } = require('./data/animals');
 
@@ -32,6 +33,9 @@ function filterByQuery(query, animalsArray) {
     });
   }
   if (query.diet) {
+    //To break this down - we are saying that the object is an animal, and that the filter is on the 
+    //Animal diet. We are setting the query.diet as the animal diet to filter the results.
+    //Then we are returning the filtered results
     filteredResults = filteredResults.filter(animal => animal.diet === query.diet);
   }
   if (query.species) {
